@@ -62,15 +62,12 @@ npm run dev
 
 Visit [http://localhost:3000](http://localhost:3000).
 
-## Scripts
-
-- `npm run dev` — start development server
-- `npm run build` — build production app
-- `npm run start` — start built app
-- `npm run lint` — run ESLint
-- `npm run db:seed` — seed database
 
 ## Notes
 
 - Keep `.env` out of version control.
 - `.gitignore` is configured to ignore local build output, environment files, Vercel metadata, and dependencies.
+
+## License
+
+This project is released under the MIT License. See [LICENSE](./LICENSE) for details.
