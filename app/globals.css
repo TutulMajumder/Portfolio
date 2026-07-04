@@ -1,0 +1,59 @@
+@import "tailwindcss";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+
+:root {
+  /* Signature palette — "code editor at night" for a developer portfolio */
+  --color-editor-bg: #15130f;
+  --color-editor-panel: #1d1a15;
+  --color-editor-border: #322c22;
+  --color-paper: #f1ece0;
+  --color-muted: #948b7a;
+  --color-signal: #e3a34d;
+  --color-teal: #4fb6a6;
+  --color-rose: #d9706b;
+}
+
+@theme inline {
+  --color-editor-bg: var(--color-editor-bg);
+  --color-editor-panel: var(--color-editor-panel);
+  --color-editor-border: var(--color-editor-border);
+  --color-paper: var(--color-paper);
+  --color-muted: var(--color-muted);
+  --color-signal: var(--color-signal);
+  --color-teal: var(--color-teal);
+  --color-rose: var(--color-rose);
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-body: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-editor-bg);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-editor-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

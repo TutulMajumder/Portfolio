@@ -1,0 +1,130 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// Single admin user. No public sign-up — created via seed script.
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+// Singleton — hero/about content. Enforced as a single row at the app level.
+model Profile {
+  id                String   @id @default(cuid())
+  name              String
+  designation       String
+  photoUrl          String?
+  resumeUrl         String?
+  aboutMe           String   @db.Text
+  hobbies           String?  @db.Text
+  availableForHire  Boolean  @default(true)
+  updatedAt         DateTime @updatedAt
+}
+
+model Skill {
+  id        String   @id @default(cuid())
+  name      String
+  category  String   // e.g. Frontend, Backend, Tools, Database
+  level     Int      @default(80) // 0-100, used for skill bars
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Education {
+  id           String   @id @default(cuid())
+  institute    String
+  degree       String
+  fieldOfStudy String?
+  startYear    String
+  endYear      String?
+  result       String?
+  description  String?  @db.Text
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+}
+
+model Experience {
+  id               String   @id @default(cuid())
+  company          String
+  role             String
+  companyLogoUrl   String?
+  location         String?
+  startDate        String
+  endDate          String?
+  description      String?  @db.Text
+  responsibilities String[]
+  order            Int      @default(0)
+  createdAt        DateTime @default(now())
+}
+
+model Project {
+  id            String   @id @default(cuid())
+  name          String
+  slug          String   @unique
+  thumbnailUrl  String?
+  shortDesc     String   @db.Text
+  fullDesc      String?  @db.Text
+  keyFeatures   String[]
+  techStack     String[]
+  liveLink      String?
+  githubLink    String?
+  challenges    String?  @db.Text
+  futurePlans   String?  @db.Text
+  featured      Boolean  @default(false)
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model SocialLink {
+  id       String @id @default(cuid())
+  platform String // github, linkedin, twitter, facebook, etc.
+  url      String
+  order    Int    @default(0)
+}
+
+model Certification {
+  id            String   @id @default(cuid())
+  name          String
+  issuer        String
+  issueDate     String
+  credentialUrl String?
+  imageUrl      String?
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  icon        String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  message   String   @db.Text
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+// Singleton — contact details
+model ContactInfo {
+  id            String  @id @default(cuid())
+  email         String
+  phone         String?
+  whatsapp      String?
+  updatedAt     DateTime @updatedAt
+}
