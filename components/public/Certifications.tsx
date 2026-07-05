@@ -28,13 +28,13 @@ export default function Certifications({ items }: { items: CertificationItem[] }
             key={cert.id}
             className="rounded-xl border border-editor-border bg-editor-panel overflow-hidden hover:border-signal transition-colors flex flex-col"
           >
-            <div className="relative aspect-[4/3] w-full bg-editor-bg">
+            <div className="relative aspect-video w-full bg-white p-3">
               {cert.imageUrl ? (
                 <Image
                   src={cert.imageUrl}
                   alt={cert.name}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               ) : (
                 <div className="h-full w-full flex items-center justify-center">
@@ -43,12 +43,12 @@ export default function Certifications({ items }: { items: CertificationItem[] }
               )}
             </div>
 
-            <div className="p-5 flex flex-col flex-1">
+            <div className="p-6 flex flex-col flex-1">
               <p className="font-mono text-xs text-muted mb-2">{cert.issueDate}</p>
-              <h3 className="font-display font-semibold text-paper text-base leading-snug">
+              <h3 className="font-display font-semibold text-paper text-lg leading-snug">
                 {cert.name}
               </h3>
-              <p className="text-teal text-sm mt-1.5 flex-1">{cert.issuer}</p>
+              <p className="text-teal text-sm mt-2 flex-1">{cert.issuer}</p>
               {cert.credentialUrl && (
                 <Link
                   href={cert.credentialUrl}

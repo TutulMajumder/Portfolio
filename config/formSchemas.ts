@@ -165,6 +165,12 @@ export const projectFields: FieldConfig[] = [
   },
   { name: "liveLink", label: "Live Project Link (Demo)", type: "text" },
   { name: "githubLink", label: "GitHub Repository Link", type: "text" },
+  { name: "challenges", label: "Challenges Faced", type: "textarea" },
+  {
+    name: "futurePlans",
+    label: "Potential Improvements / Future Plans",
+    type: "textarea",
+  },
   { name: "featured", label: "Featured Project", type: "checkbox" },
   { name: "order", label: "Display Order", type: "number" },
 ];

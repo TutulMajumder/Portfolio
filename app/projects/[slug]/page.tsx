@@ -55,7 +55,6 @@ export default async function ProjectDetailPage({
         </h1>
 
         <div className="grid lg:grid-cols-[1fr_300px] gap-8 mt-8">
-          {/* Main content: Key Features first, Description last */}
           <div className="space-y-10">
             {project.keyFeatures && project.keyFeatures.length > 0 && (
               <div>
@@ -79,9 +78,26 @@ export default async function ProjectDetailPage({
                 </p>
               </TerminalWindow>
             </div>
+
+            {project.challenges && (
+              <div>
+                <p className="font-mono text-sm text-teal mb-4">{"// challenges"}</p>
+                <p className="text-muted leading-relaxed whitespace-pre-line">
+                  {project.challenges}
+                </p>
+              </div>
+            )}
+
+            {project.futurePlans && (
+              <div>
+                <p className="font-mono text-sm text-teal mb-4">{"// future_plans"}</p>
+                <p className="text-muted leading-relaxed whitespace-pre-line">
+                  {project.futurePlans}
+                </p>
+              </div>
+            )}
           </div>
 
-          {/* Sidebar: tech stack + links */}
           <aside className="lg:sticky lg:top-24 h-fit">
             <div className="rounded-xl border border-editor-border bg-editor-panel p-6 space-y-6">
               <div>
